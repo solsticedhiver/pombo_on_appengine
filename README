@@ -1,0 +1,8 @@
+You don't have a server to run the server side of pombo ?
+http://sebsauvage.net/pombo/index.html
+or http://bobotig.fr/contenu/projets/pombo/
+
+You can have one free at Google App Engine ! at http://code.google.com/appengine
+You got 1Gb of datastore free quota to store your pombo files
+
+Just customize app.yaml and you're ready to go
