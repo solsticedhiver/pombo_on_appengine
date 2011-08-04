@@ -1,0 +1,4 @@
+cron:
+- description: daily cleaning of old pombo entries
+  url: /cron/cleaning
+  schedule: every 24 hours

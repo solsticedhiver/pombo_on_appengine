@@ -1,0 +1,16 @@
+application: your-app-engine-id
+version: 1
+runtime: python
+api_version: 1
+
+handlers:
+- url: /cron/cleaning
+  script: remove_old_entries.py
+  login: admin
+
+- url: /pombo
+  script: pombo.py
+
+- url: /pombo/(entry|admin)
+  script: pombo.py
+  login: admin

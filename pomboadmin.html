@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+
+<html lang="en">
+	<head>
+		<title>Pombo control panel</title>
+		<meta charset="utf-8">
+	</head>
+
+	<body>
+		<table>
+			{% for e in entries %}
+			<tr>
+				<td>{{ e.creation_date }}</td>
+				<td><a href="/pombo/entry?{{ e.key.name }}">{{ e.filename }}<a/></td>
+			</tr>
+			{% endfor %}
+		</table>
+	</body>
+</html>
