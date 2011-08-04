@@ -7,7 +7,6 @@ from google.appengine.ext import webapp
 from google.appengine.ext.webapp import template
 from google.appengine.ext import db
 from google.appengine.ext.webapp.util import run_wsgi_app
-from google.appengine.runtime.apiproxy_errors import OverQuotaError, CapabilityDisabledError
 
 # only enable debug on dev server
 DEBUG = os.environ['SERVER_SOFTWARE'].startswith('Development')
@@ -59,12 +58,7 @@ class PomboHandler(webapp.RequestHandler):
                 return
             # use the token as key_name; should be unique
             pe = PomboEntry(key_name=token, filename=filename, filedata=base64.b64decode(filedata))
-            try:
-                pe.put()
-            except (db.Error, OverQuotaError, CapabilityDisabledError):
-                self.response.out.write('Could not write file.')
-                self.error(500)
-                return
+            pe.put()
 
             self.response.out.write('File stored.')
 
